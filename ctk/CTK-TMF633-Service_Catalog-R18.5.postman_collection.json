@@ -1,0 +1,2900 @@
+{
+	"info": {
+		"_postman_id": "08c0f7b8-78aa-45ba-acc1-f1995acf805d",
+		"name": "CTK-TMF633-Service_Catalog-R18.5",
+		"description": "## TMF API Reference: TMF633 - Service Catalog Management\n\n### Release : 18.5 - December 2018\n\nService Catalog API is one of Catalog Management API Family. Service Catalog API goal is to provide a catalog of services. \n\n### Resource \n- serviceCatalog\n\n### Operations\nService Catalog API performs the following operations on the resource :\n- Retrieve an entity or a collection of entities depending on filter criteria\n- Partial update of an entity (including updating rules)\n- Create an entity (including default values and creation rules)\n- Delete an entity (for administration purposes)\n- Manage notification of events",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "serviceCandidate",
+			"item": [
+				{
+					"name": "TC_ServiceCandidate_N1",
+					"item": [
+						{
+							"name": "Creates a ServiceCandidate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e4d70bee-c0ad-4be6-bcc2-0dc2e63d4356",
+										"exec": [
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"  pm.response.to.have.status(201);",
+											"});",
+											"",
+											"",
+											"var instance = pm.response.json();",
+											"",
+											"var requiredAttributes = [ 'name', 'id', 'href'];",
+											"pm.test('Instance has all mandatory attributes', function() { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) } );",
+											"",
+											"pm.test('Response has name attribute', function() { pm.expect(instance.name).to.be.a('string'); });",
+											"",
+											"pm.test('Response has id attribute', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"",
+											"pm.test('Response has href attribute', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"",
+											"",
+											"pm.globals.set(\"IDSC01\", instance.id);",
+											"pm.globals.set(\"HREFSC01\", instance.href);",
+											"pm.globals.set(\"NAMESC01\", instance.name);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"TVServiceCandidate\", \n    \"description\": \"This service candidate allows provision of TV service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\", \n        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5980\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceCategory/5980\",\n            \"name\": \"TV\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9600\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecification/9600\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_TV\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceCandidate",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceCandidate"
+									]
+								},
+								"description": "This operation creates a ServiceCandidate entity."
+							},
+							"response": []
+						},
+						{
+							"name": "Creates another ServiceCandidate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e4d70bee-c0ad-4be6-bcc2-0dc2e63d4356",
+										"exec": [
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"  pm.response.to.have.status(201);",
+											"});",
+											"",
+											"",
+											"var instance = pm.response.json();",
+											"",
+											"var requiredAttributes = [ 'name', 'id', 'href'];",
+											"pm.test('Instance has all mandatory attributes', function() { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) } );",
+											"",
+											"pm.test('Response has name attribute', function() { pm.expect(instance.name).to.be.a('string'); });",
+											"",
+											"pm.test('Response has id attribute', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"",
+											"pm.test('Response has href attribute', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"",
+											"",
+											"pm.globals.set(\"IDSC02\", instance.id);",
+											"pm.globals.set(\"HREFSC02\", instance.href);",
+											"pm.globals.set(\"NAMESC02\", instance.name);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"InternetServiceCandidate\", \n    \"description\": \"This service candidate allows provision of Internet service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-05T20:00:00.000Z\", \n        \"endDateTime\": \"2020-05-05T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5910\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceCategory/5910\",\n            \"name\": \"Internet\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9500\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecification/9500\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_Internet\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceCandidate",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceCandidate"
+									]
+								},
+								"description": "This operation creates a ServiceCandidate entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceCandidate_N2",
+					"item": [
+						{
+							"name": "List or find ServiceCandidate objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "d3772bad-401b-470a-9f69-04b0224343cd",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"// TODO: jsonData might be an array of resources - need to detect and iterate if so",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    // var requiredAttributes = [ 'id','href','name','description','serviceState','category','startDate','serviceRelationship','serviceCharacteristic'];",
+											"    var requiredAttributes = ['id', 'href', 'name'];",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"    // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"    pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string'); });",
+											"    pm.test('Response has href attribute', function () { pm.expect(instance.href).to.be.a('string'); });",
+											"    pm.test('Response has name attribute', function () { pm.expect(instance.name).to.be.a('string'); });",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSI01\")) {",
+											"",
+											"",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDSI01\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSI01\"); });",
+											"      pm.test('name is ' + pm.globals.get(\"NAMESI01\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESI01\"); });",
+											"      pm.test('href is ' + pm.globals.get(\"HREFSC01\"), function () { pm.expect(instance.href) == pm.globals.get(\"HREFSC01\"); });",
+											"",
+											"    }",
+											"",
+											"",
+											"    if (instance.id == pm.globals.get(\"IDSI02\")) {",
+											"",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDSI02\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSI02\"); });",
+											"      pm.test('name is ' + pm.globals.get(\"NAMESI02\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESI02\"); });",
+											"      pm.test('href is ' + pm.globals.get(\"HREFSC02\"), function () { pm.expect(instance.href) == pm.globals.get(\"HREFSC02\"); });",
+											"",
+											"",
+											"    }",
+											"",
+											"",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  pm.test('Array with multiple elements expected as response', function (){pm.expect.fail()});",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceCandidate?",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceCandidate"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "{{fields}}",
+											"disabled": true
+										},
+										{
+											"key": "offset",
+											"value": "{{offset}}",
+											"disabled": true
+										},
+										{
+											"key": "limit",
+											"value": "{{limit}}",
+											"disabled": true
+										}
+									]
+								},
+								"description": "This operation list or find ServiceCandidate entities"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceCandidate_N3",
+					"item": [
+						{
+							"name": "Retrieves a ServiceCandidate filtering by name",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2630c866-8d50-4005-b173-933a647cba88",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"// TODO: jsonData might be an array of resources - need to detect and iterate if so",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    // var requiredAttributes = [ 'id','href','name','description','serviceState','category','startDate','serviceRelationship','serviceCharacteristic'];",
+											"    var requiredAttributes = ['id', 'href', 'name'];",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"    // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"    pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string'); });",
+											"    pm.test('Response has href attribute', function () { pm.expect(instance.href).to.be.a('string'); });",
+											"    pm.test('Response has name attribute', function () { pm.expect(instance.name).to.be.a('string'); });",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSI01\")) {",
+											"",
+											"",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDSI01\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSI01\"); });",
+											"      pm.test('name is ' + pm.globals.get(\"NAMESI01\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESI01\"); });",
+											"      pm.test('href is ' + pm.globals.get(\"HREFSC01\"), function () { pm.expect(instance.href) == pm.globals.get(\"HREFSC01\"); });",
+											"",
+											"    }",
+											"",
+											"",
+											"    if (instance.id == pm.globals.get(\"IDSI02\")) {",
+											"",
+											"",
+											"      pm.test('Element with ID: ' + pm.globals.get(\"IDSI02\") + \" not expected in this GET.\", function (){pm.expect.fail()});",
+											"",
+											"    }",
+											"",
+											"",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  if (instance.id == pm.globals.get(\"IDSI01\")) {",
+											"",
+											"",
+											"",
+											"    pm.test('id is ' + pm.globals.get(\"IDSI01\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSI01\"); });",
+											"    pm.test('name is ' + pm.globals.get(\"NAMESI01\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESI01\"); });",
+											"    pm.test('href is ' + pm.globals.get(\"HREFSC01\"), function () { pm.expect(instance.href) == pm.globals.get(\"HREFSC01\"); });",
+											"",
+											"  }",
+											"  else {",
+											"    pm.test('Element with ID: ' + pm.globals.get(\"IDSI01\") + \" expected in this GET.\", function (){pm.expect.fail()});",
+											"  }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate?name={{NAMESC01}}",
+									"host": [
+										"{{Service_Catalog}}"
+									],
+									"path": [
+										"tmf-api",
+										"serviceCatalogManagement",
+										"v4",
+										"serviceCandidate"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{NAMESC01}}"
+										},
+										{
+											"key": "fields",
+											"value": "{{fields}}",
+											"disabled": true
+										}
+									]
+								},
+								"description": "This operation retrieves a ServiceCandidate entity. Attribute selection is enabled for all first level attributes."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceCandidate_N4",
+					"item": [
+						{
+							"name": "Retrieves a ServiceCandidate filtering by name fields name and id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2630c866-8d50-4005-b173-933a647cba88",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"// TODO: jsonData might be an array of resources - need to detect and iterate if so",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    var requiredAttributes = ['id', 'name', 'href'];",
+											"    pm.test('Instance has only filtered attributes', function () { pm.expect(Object.keys(instance)).to.have.members(requiredAttributes)});",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"    // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"    pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string'); });",
+											"    pm.test('Response has name attribute', function () { pm.expect(instance.name).to.be.a('string'); });",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSI02\")) {",
+											"",
+											"",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDSI02\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSI02\"); });",
+											"      pm.test('name is ' + pm.globals.get(\"NAMESI02\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESI02\"); });",
+											"    ",
+											"    }",
+											"",
+											"",
+											"    if (instance.id == pm.globals.get(\"IDSI01\")) {",
+											"",
+											"",
+											"      pm.test('Element with ID: ' + pm.globals.get(\"IDSI01\") + \" not expected in this GET.\", function (){pm.expect.fail()});",
+											"",
+											"    }",
+											"",
+											"",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  if (instance.id == pm.globals.get(\"IDSI02\")) {",
+											"    var requiredAttributes = ['id', 'name'];",
+											"    pm.test('Instance has only filtered attributes', function () { pm.expect(Object.keys(instance)).to.have.members(requiredAttributes)});",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"",
+											"",
+											"    pm.test('id is ' + pm.globals.get(\"IDSI02\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSI02\"); });",
+											"    pm.test('name is ' + pm.globals.get(\"NAMESI02\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESI02\"); });",
+											"    ",
+											"  }",
+											"  else {",
+											"    pm.test('Element with ID: ' + pm.globals.get(\"IDSI02\") + \" expected in this GET.\", function (){pm.expect.fail()});",
+											"  }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate?name={{NAMESC02}}&fields=name,id",
+									"host": [
+										"{{Service_Catalog}}"
+									],
+									"path": [
+										"tmf-api",
+										"serviceCatalogManagement",
+										"v4",
+										"serviceCandidate"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{NAMESC02}}"
+										},
+										{
+											"key": "fields",
+											"value": "name,id"
+										}
+									]
+								},
+								"description": "This operation retrieves a ServiceCandidate entity. Attribute selection is enabled for all first level attributes."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceCandidate_N5",
+					"item": [
+						{
+							"name": "Deletes a ServiceCandidate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4bc32be4-037f-4aa3-9fb2-9239af3487b1",
+										"exec": [
+											"pm.test(\"Status code is 204\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate/{{IDSC01}}",
+									"host": [
+										"{{Service_Catalog}}"
+									],
+									"path": [
+										"tmf-api",
+										"serviceCatalogManagement",
+										"v4",
+										"serviceCandidate",
+										"{{IDSC01}}"
+									]
+								},
+								"description": "This operation deletes a ServiceCandidate entity."
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieves a ServiceCandidate filtering by id (404)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2630c866-8d50-4005-b173-933a647cba88",
+										"exec": [
+											"pm.test(\"Status code is 404\", function () {",
+											"  pm.response.to.have.status(404);",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate/{{IDSC01}}",
+									"host": [
+										"{{Service_Catalog}}"
+									],
+									"path": [
+										"tmf-api",
+										"serviceCatalogManagement",
+										"v4",
+										"serviceCandidate",
+										"{{IDSC01}}"
+									]
+								},
+								"description": "This operation retrieves a ServiceCandidate entity. Attribute selection is enabled for all first level attributes."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceCandidate_N6",
+					"item": [
+						{
+							"name": "Updates partially a ServiceCandidate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "b04287a1-9f04-4d9d-9e75-2946713ca75c",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"  pm.response.to.have.status(201);",
+											"});",
+											"var instance = pm.response.json();",
+											"pm.globals.set(\"NAMESC02\", instance.name);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Updated Service Candidate\"\n    \n}"
+								},
+								"url": {
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate/{{IDSC02}}",
+									"host": [
+										"{{Service_Catalog}}"
+									],
+									"path": [
+										"tmf-api",
+										"serviceCatalogManagement",
+										"v4",
+										"serviceCandidate",
+										"{{IDSC02}}"
+									]
+								},
+								"description": "This operation updates partially a ServiceCandidate entity."
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieves a ServiceCandidate filtering by id updated",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2630c866-8d50-4005-b173-933a647cba88",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"// TODO: jsonData might be an array of resources - need to detect and iterate if so",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    var requiredAttributes = ['id', 'name', 'href'];",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"    // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"    pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string'); });",
+											"    pm.test('Response has name attribute', function () { pm.expect(instance.name).to.be.a('string'); });",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSI02\")) {",
+											"",
+											"",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDSI02\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSI02\"); });",
+											"      pm.test('name is ' + pm.globals.get(\"NAMESI02\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESI02\"); });",
+											"    ",
+											"    }",
+											"",
+											"",
+											"    if (instance.id == pm.globals.get(\"IDSI01\")) {",
+											"",
+											"",
+											"      pm.test('Element with ID: ' + pm.globals.get(\"IDSI01\") + \" not expected in this GET.\", function (){pm.expect.fail()});",
+											"",
+											"    }",
+											"",
+											"",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  if (instance.id == pm.globals.get(\"IDSI02\")) {",
+											"    var requiredAttributes = ['id', 'name', 'href'];",
+											"   pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"",
+											"",
+											"    pm.test('id is ' + pm.globals.get(\"IDSI02\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSI02\"); });",
+											"    pm.test('name is ' + pm.globals.get(\"NAMESI02\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESI02\"); });",
+											"    ",
+											"  }",
+											"  else {",
+											"    pm.test('Element with ID: ' + pm.globals.get(\"IDSI02\") + \" expected in this GET.\", function (){pm.expect.fail()});",
+											"  }",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate?name={{NAMESC02}}",
+									"host": [
+										"{{Service_Catalog}}"
+									],
+									"path": [
+										"tmf-api",
+										"serviceCatalogManagement",
+										"v4",
+										"serviceCandidate"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "{{fields}}",
+											"disabled": true
+										},
+										{
+											"key": "name",
+											"value": "{{NAMESC02}}"
+										}
+									]
+								},
+								"description": "This operation retrieves a ServiceCandidate entity. Attribute selection is enabled for all first level attributes."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceCandidate_E1",
+					"item": [
+						{
+							"name": "Creates a ServiceCandidate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e4d70bee-c0ad-4be6-bcc2-0dc2e63d4356",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"  pm.response.to.have.status(400);",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"This service candidate allows provision of TV service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\", \n        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5980\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceCategory/5980\",\n            \"name\": \"TV\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9600\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecification/9600\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_TV\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceCandidate",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceCandidate"
+									]
+								},
+								"description": "This operation creates a ServiceCandidate entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceCandidate_E2",
+					"item": [
+						{
+							"name": "Creates a ServiceCandidate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e4d70bee-c0ad-4be6-bcc2-0dc2e63d4356",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"  pm.response.to.have.status(400);",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\" : \"12312321\"\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceCandidate/{{IDSC02}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceCandidate",
+										"{{IDSC02}}"
+									]
+								},
+								"description": "This operation creates a ServiceCandidate entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "Folder for serviceCandidate"
+		},
+		{
+			"name": "serviceSpecification",
+			"item": [
+				{
+					"name": "TC_ServiceSpecification_N1",
+					"item": [
+						{
+							"name": "Creates a ServiceSpecification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4ee267d1-abac-4018-bb83-a2e2cde94fb5",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData)) { ",
+											"  ",
+											"    pm.test('Array not expected as response', function (){pm.expect.fail()});",
+											"  ",
+											"",
+											"}",
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"  pm.response.to.have.status(201);",
+											"});",
+											"",
+											"var instance = pm.response.json();",
+											"var requiredAttributes = [ 'id', 'href', 'name', '@type', 'lifecycleStatus', 'isBundle',  ];",
+											"",
+											"pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"",
+											"",
+											"pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response name attribute is of type string', function() { pm.expect(instance.name).to.be.a('string'); });",
+											"pm.test('Response @type attribute is of type string', function() { pm.expect(instance[\"@type\"]).to.be.a('string'); });",
+											"pm.test('Response lifecycleStatus attribute is of type string', function() { pm.expect(instance.lifecycleStatus).to.be.a('string'); });",
+											"pm.test('Response isBundle attribute is of type boolean', function() { pm.expect(instance.isBundle).to.be.a('boolean'); });",
+											"",
+											"",
+											"pm.test('id is set', function() {pm.globals.set('IDSS01', instance.id); pm.expect(instance.id) == pm.globals.get(\"IDSS01\");});",
+											"pm.test('href is set', function() {pm.globals.set('HREFSS01', instance.href); pm.expect(instance.href) == pm.globals.get(\"HREFSS01\");});",
+											"pm.test('name is set', function() {pm.globals.set('NAMESS01', instance.name); pm.expect(instance.name) == pm.globals.get(\"NAMESS01\");});",
+											"pm.test('@type is set', function() {pm.globals.set('@TYPESS01', instance[\"@type\"]); pm.expect(instance[\"@type\"]) == pm.globals.get(\"@TYPESS01\");});",
+											"pm.test('lifecycleStatus is set', function() {pm.globals.set('LIFECYCLESTATUSSS01', instance.lifecycleStatus); pm.expect(instance.lifecycleStatus) == pm.globals.get(\"LIFECYCLESTATUSSS01\");});",
+											"pm.test('isBundle is set', function() {pm.globals.set('ISBUNDLESS01', instance.isBundle); pm.expect(instance.isBundle) == pm.globals.get(\"ISBUNDLESS01\");});",
+											"",
+											"",
+											"pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on name\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.name);",
+											"      });",
+											"pm.test(\"Body includes value held on @type\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance[\"@type\"]);",
+											"      });",
+											"pm.test(\"Body includes value held on lifecycleStatus\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.lifecycleStatus);",
+											"      });",
+											"pm.test(\"Body includes value held on isBundle\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.isBundle);",
+											"      });",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Firewall Service\",\n    \"description\": \"This service specification describes a firewall service that can be deployed in customer premise.\",\n    \"version\": \"1.0\",\n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n        \"endDateTime\": \"2010-01-20T20:00:00.000Z\"\n    },\n    \"lastUpdate\": \"2019-01-20T20:00:00.000Z\",\n    \"lifecycleStatus\": \"In Design\",\n    \"isBundle\": false,\n    \"attachment\": [\n        {\n            \"description\": \"This attachment gives a block diagram of the firewall.\",\n            \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v4/attachment/22\",\n            \"id\": \"22\",\n            \"url\": \"https://mycsp.com:7070/docloader?docnum=3534536\"\n        }\n    ],\n    \"serviceSpecCharacteristic\": [\n        {\n            \"name\": \"OperatingSystem\",\n            \"description\": \"This characteristic describes the operating system run by the service\",\n            \"valueType\": \"string\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": false,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"string\",\n                    \"isDefault\": true,\n                    \"value\": \"Android KitKat\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"serviceSpecCharRelationship\": [\n                {\n                    \"relationshipType\": \"dependency\",\n                    \"role\": \"\",\n                    \"id\": \"4690\",\n                    \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecificationCharacteristic/4690\",\n                    \"name\": \"OperatingSystem\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        },\n        {\n            \"name\": \"Scalability\",\n            \"description\": \"Scalability parameters for this resource facing service spec \",\n            \"valueType\": \"CapabilityScalable\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": true,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"object\",\n                    \"isDefault\": true,\n                    \"value\": {\n                        \"minInstances\": 1,\n                        \"maxInstances\": 1000\n                    },\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    },\n                    \"@type\": \"CapabilityScalable\",\n                    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\"\n                }\n            ],\n            \"serviceSpecCharRelationship\": [],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        }\n    ],\n    \"relatedParty\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v4/organization/3643\",\n            \"id\": \"3643\",\n            \"name\": \"Firewall Express\",\n            \"role\": \"Supplier\"\n        }\n    ],\n    \"serviceLevelSpecification\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceQualityManagement/v4/serviceLevelSpecification/8899\",\n            \"id\": \"8899\",\n            \"name\": \"Platinum\"\n        }\n    ],\n    \"targetServiceSchema\": {\n        \"@type\": \"RFS\",\n        \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/RFS.schema.json\"\n    },\n    \"@type\": \"ResourceFacingServiceSpecification\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ResourceFacingServiceSpecification.schema.json\",\n    \"@baseType\": \"ServiceSpecification\"\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification"
+									]
+								},
+								"description": "This operation creates a ServiceSpecification entity."
+							},
+							"response": []
+						},
+						{
+							"name": "Creates another ServiceSpecification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "fb1108b2-7c94-4d9f-a2db-168784793dde",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData)) { ",
+											"  ",
+											"    pm.test('Array not expected as response', function (){pm.expect.fail()});",
+											"  ",
+											"",
+											"}",
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"  pm.response.to.have.status(201);",
+											"});",
+											"",
+											"var instance = pm.response.json();",
+											"var requiredAttributes = [ 'id', 'href', 'name', '@type', 'lifecycleStatus', 'isBundle',  ];",
+											"",
+											"pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"",
+											"",
+											"pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response name attribute is of type string', function() { pm.expect(instance.name).to.be.a('string'); });",
+											"pm.test('Response @type attribute is of type string', function() { pm.expect(instance[\"@type\"]).to.be.a('string'); });",
+											"pm.test('Response lifecycleStatus attribute is of type string', function() { pm.expect(instance.lifecycleStatus).to.be.a('string'); });",
+											"pm.test('Response isBundle attribute is of type boolean', function() { pm.expect(instance.isBundle).to.be.a('boolean'); });",
+											"",
+											"",
+											"pm.test('id is set', function() {pm.globals.set('IDSS02', instance.id); pm.expect(instance.id) == pm.globals.get(\"IDSS02\");});",
+											"pm.test('href is set', function() {pm.globals.set('HREFSS02', instance.href); pm.expect(instance.href) == pm.globals.get(\"HREFSS02\");});",
+											"pm.test('name is set', function() {pm.globals.set('NAMESS02', instance.name); pm.expect(instance.name) == pm.globals.get(\"NAMESS02\");});",
+											"pm.test('@type is set', function() {pm.globals.set('@TYPESS02', instance[\"@type\"]); pm.expect(instance[\"@type\"]) == pm.globals.get(\"@TYPESS02\");});",
+											"pm.test('lifecycleStatus is set', function() {pm.globals.set('LIFECYCLESTATUSSS02', instance.lifecycleStatus); pm.expect(instance.lifecycleStatus) == pm.globals.get(\"LIFECYCLESTATUSSS02\");});",
+											"pm.test('isBundle is set', function() {pm.globals.set('ISBUNDLESS02', instance.isBundle); pm.expect(instance.isBundle) == pm.globals.get(\"ISBUNDLESS02\");});",
+											"",
+											"",
+											"pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on name\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.name);",
+											"      });",
+											"pm.test(\"Body includes value held on @type\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance[\"@type\"]);",
+											"      });",
+											"pm.test(\"Body includes value held on lifecycleStatus\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.lifecycleStatus);",
+											"      });",
+											"pm.test(\"Body includes value held on isBundle\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.isBundle);",
+											"      });",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Only Post Mandatory Service\",\n    \"@type\": \"ResourceFacingServiceSpecification\",\n    \"lifecycleStatus\": \"In Design\", \n    \"isBundle\": false\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification"
+									]
+								},
+								"description": "This operation creates a ServiceSpecification entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceSpecification_N2",
+					"item": [
+						{
+							"name": "List or find ServiceSpecification objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e4674b48-3351-4839-88df-7e176abe529e",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"",
+											"    var requiredAttributes = ['id', 'href', 'name', '@type', 'lifecycleStatus', 'isBundle',];",
+											"",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"",
+											"",
+											"    pm.test('Response id attribute is of type string', function () { pm.expect(instance.id).to.be.a('string'); });",
+											"    pm.test('Response href attribute is of type string', function () { pm.expect(instance.href).to.be.a('string'); });",
+											"    pm.test('Response name attribute is of type string', function () { pm.expect(instance.name).to.be.a('string'); });",
+											"    pm.test('Response @type attribute is of type string', function () { pm.expect(instance[\"@type\"]).to.be.a('string'); });",
+											"    pm.test('Response lifecycleStatus attribute is of type string', function () { pm.expect(instance.lifecycleStatus).to.be.a('string'); });",
+											"    pm.test('Response isBundle attribute is of type boolean', function () { pm.expect(instance.isBundle).to.be.a('boolean'); });",
+											"",
+											"",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"      pm.expect(pm.response.text()).to.include(instance.id);",
+											"    });",
+											"    pm.test(\"Body includes value held on href\", function () {",
+											"      pm.expect(pm.response.text()).to.include(instance.href);",
+											"    });",
+											"    pm.test(\"Body includes value held on name\", function () {",
+											"      pm.expect(pm.response.text()).to.include(instance.name);",
+											"    });",
+											"    pm.test(\"Body includes value held on @type\", function () {",
+											"      pm.expect(pm.response.text()).to.include(instance[\"@type\"]);",
+											"    });",
+											"    pm.test(\"Body includes value held on lifecycleStatus\", function () {",
+											"      pm.expect(pm.response.text()).to.include(instance.lifecycleStatus);",
+											"    });",
+											"    pm.test(\"Body includes value held on isBundle\", function () {",
+											"      pm.expect(pm.response.text()).to.include(instance.isBundle);",
+											"    });",
+											"",
+											"",
+											"",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDSS01\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSS01\"); });",
+											"      pm.test('href is ' + pm.globals.get(\"HREFSS01\"), function () { pm.expect(instance.href) == pm.globals.get(\"HREFSS01\"); });",
+											"      pm.test('name is ' + pm.globals.get(\"NAMESS01\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESS01\"); });",
+											"      pm.test('@type is ' + pm.globals.get(\"@TYPESS01\"), function () { pm.expect(instance[\"@type\"]) == pm.globals.get(\"@TYPESS01\"); });",
+											"      pm.test('lifecycleStatus is ' + pm.globals.get(\"LIFECYCLESTATUSSS01\"), function () { pm.expect(instance.lifecycleStatus) == pm.globals.get(\"LIFECYCLESTATUSSS01\"); });",
+											"      pm.test('isBundle is ' + pm.globals.get(\"ISBUNDLESS01\"), function () { pm.expect(instance.isBundle) == pm.globals.get(\"ISBUNDLESS01\"); });",
+											"",
+											"    }",
+											"    if (instance.id == pm.globals.get(\"IDSS02\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDSS02\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSS02\"); });",
+											"      pm.test('href is ' + pm.globals.get(\"HREFSS02\"), function () { pm.expect(instance.href) == pm.globals.get(\"HREFSS02\"); });",
+											"      pm.test('name is ' + pm.globals.get(\"NAMESS02\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESS02\"); });",
+											"      pm.test('@type is ' + pm.globals.get(\"@TYPESS02\"), function () { pm.expect(instance[\"@type\"]) == pm.globals.get(\"@TYPESS02\"); });",
+											"      pm.test('lifecycleStatus is ' + pm.globals.get(\"LIFECYCLESTATUSSS02\"), function () { pm.expect(instance.lifecycleStatus) == pm.globals.get(\"LIFECYCLESTATUSSS02\"); });",
+											"      pm.test('isBundle is ' + pm.globals.get(\"ISBUNDLESS02\"), function () { pm.expect(instance.isBundle) == pm.globals.get(\"ISBUNDLESS02\"); });",
+											"",
+											"    }",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  pm.test('Array with multiple elements expected as response', function () { pm.expect.fail() });",
+											"}",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification"
+									]
+								},
+								"description": "This operation list or find ServiceSpecification entities"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceSpecification_N3",
+					"item": [
+						{
+							"name": "Retrieves a ServiceSpecification by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4800068a-9ee7-4264-bfc9-8ad50cb92bb6",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    ",
+											"    var requiredAttributes = [ 'id', 'href', 'name', '@type', 'lifecycleStatus', 'isBundle',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response name attribute is of type string', function() { pm.expect(instance.name).to.be.a('string'); });",
+											"pm.test('Response @type attribute is of type string', function() { pm.expect(instance[\"@type\"]).to.be.a('string'); });",
+											"pm.test('Response lifecycleStatus attribute is of type string', function() { pm.expect(instance.lifecycleStatus).to.be.a('string'); });",
+											"pm.test('Response isBundle attribute is of type boolean', function() { pm.expect(instance.isBundle).to.be.a('boolean'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on name\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.name);",
+											"      });",
+											"pm.test(\"Body includes value held on @type\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance[\"@type\"]);",
+											"      });",
+											"pm.test(\"Body includes value held on lifecycleStatus\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.lifecycleStatus);",
+											"      });",
+											"pm.test(\"Body includes value held on isBundle\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.isBundle);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDSS01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDSS01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFSS01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFSS01\");});",
+											"pm.test('name is ' + pm.globals.get(\"NAMESS01\"), function() {pm.expect(instance.name) == pm.globals.get(\"NAMESS01\");});",
+											"pm.test('@type is ' + pm.globals.get(\"@TYPESS01\"), function() {pm.expect(instance[\"@type\"]) == pm.globals.get(\"@TYPESS01\");});",
+											"pm.test('lifecycleStatus is ' + pm.globals.get(\"LIFECYCLESTATUSSS01\"), function() {pm.expect(instance.lifecycleStatus) == pm.globals.get(\"LIFECYCLESTATUSSS01\");});",
+											"pm.test('isBundle is ' + pm.globals.get(\"ISBUNDLESS01\"), function() {pm.expect(instance.isBundle) == pm.globals.get(\"ISBUNDLESS01\");});",
+											"",
+											"    }",
+											"    if (instance.id == pm.globals.get(\"IDSS02\")) {",
+											"",
+											"      pm.test('IDSS02 not expected on this test', function (){pm.expect.fail()});",
+											"    }",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  pm.test('Array with multiple elements expected as response', function (){pm.expect.fail()});",
+											"}",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification?name={{NAMESS01}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{NAMESS01}}"
+										}
+									]
+								},
+								"description": "This operation retrieves a ServiceSpecification entity. Attribute selection is enabled for all first level attributes."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceSpecification_N4",
+					"item": [
+						{
+							"name": "Retrieves a ServiceSpecification by ID",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4800068a-9ee7-4264-bfc9-8ad50cb92bb6",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"if (Array.isArray(jsonData)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    var requiredAttributes = ['name', 'id', 'href', 'isBundle'];",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"    //We expect only 3 fields",
+											"",
+											"    pm.test('Instance has only filtered attributes', function () { pm.expect(Object.keys(instance).length).to.eql(requiredAttributes.length) });",
+											"",
+											"    // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"",
+											"    pm.test('Response has name attribute', function () { pm.expect(instance.name).to.be.a('string'); });",
+											"",
+											"    pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string') });",
+											"",
+											"    pm.test('Response has isBundle attribute', function () { pm.expect(instance.isBundle).to.be.a('boolean') });",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  var requiredAttributes = ['name', 'id', 'isBundle'];",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"    //We expect only 3 fields",
+											"",
+											"    pm.test('Instance has only filtered attributes', function () { pm.expect(Object.keys(instance).length).to.eql(requiredAttributes.length) });",
+											"",
+											"    // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"",
+											"    pm.test('Response has name attribute', function () { pm.expect(instance.name).to.be.a('string'); });",
+											"",
+											"    pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string') });",
+											"",
+											"    pm.test('Response has isBundle attribute', function () { pm.expect(instance.isBundle).to.be.a('boolean') });",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification?name={{NAMESS02}}&fields=name,isBundle",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "{{NAMESS02}}"
+										},
+										{
+											"key": "fields",
+											"value": "name,isBundle"
+										}
+									]
+								},
+								"description": "This operation retrieves a ServiceSpecification entity. Attribute selection is enabled for all first level attributes."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceSpecification_N5",
+					"item": [
+						{
+							"name": "Deletes a ServiceSpecification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4800068a-9ee7-4264-bfc9-8ad50cb92bb6",
+										"exec": [
+											"",
+											"pm.test(\"Status code is 204\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification/{{IDSS02}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification",
+										"{{IDSS02}}"
+									]
+								},
+								"description": "This operation deletes a ServiceSpecification entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceSpecification_N6",
+					"item": [
+						{
+							"name": "Updates partially a ServiceSpecification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ddd78965-18da-4ec3-8181-9d228bd4c66f",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"  pm.response.to.have.status(201);",
+											"});",
+											"",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  pm.test('Array not expected', function () { pm.expect.fail() });",
+											"}",
+											"var instance = pm.response.json();",
+											"var requiredAttributes = ['id', 'href', 'name', '@type', 'lifecycleStatus', 'isBundle',];",
+											"",
+											"pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"",
+											"",
+											"pm.test('Response id attribute is of type string', function () { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function () { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response name attribute is of type string', function () { pm.expect(instance.name).to.be.a('string'); });",
+											"pm.test('Response @type attribute is of type string', function () { pm.expect(instance[\"@type\"]).to.be.a('string'); });",
+											"pm.test('Response lifecycleStatus attribute is of type string', function () { pm.expect(instance.lifecycleStatus).to.be.a('string'); });",
+											"pm.test('Response isBundle attribute is of type boolean', function () { pm.expect(instance.isBundle).to.be.a('boolean'); });",
+											"",
+											"",
+											"pm.test(\"Body includes value held on id\", function () {",
+											"  pm.expect(pm.response.text()).to.include(instance.id);",
+											"});",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"  pm.expect(pm.response.text()).to.include(instance.href);",
+											"});",
+											"pm.test(\"Body includes value held on name\", function () {",
+											"  pm.expect(pm.response.text()).to.include(instance.name);",
+											"});",
+											"pm.test(\"Body includes value held on @type\", function () {",
+											"  pm.expect(pm.response.text()).to.include(instance[\"@type\"]);",
+											"});",
+											"pm.test(\"Body includes value held on lifecycleStatus\", function () {",
+											"  pm.expect(pm.response.text()).to.include(instance.lifecycleStatus);",
+											"});",
+											"pm.test(\"Body includes value held on isBundle\", function () {",
+											"  pm.expect(pm.response.text()).to.include(instance.isBundle);",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"// Individualized tests",
+											"if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"  pm.test('name is set', function () { pm.globals.set('NAMESS01', instance.name); pm.expect(instance.name) == pm.globals.get(\"NAMESS01\"); });",
+											"  pm.test('id is ' + pm.globals.get(\"IDSS01\"), function () { pm.expect(instance.id) == pm.globals.get(\"IDSS01\"); });",
+											"  pm.test('href is ' + pm.globals.get(\"HREFSS01\"), function () { pm.expect(instance.href) == pm.globals.get(\"HREFSS01\"); });",
+											"  pm.test('name is ' + pm.globals.get(\"NAMESS01\"), function () { pm.expect(instance.name) == pm.globals.get(\"NAMESS01\"); });",
+											"  pm.test('@type is ' + pm.globals.get(\"@TYPESS01\"), function () { pm.expect(instance[\"@type\"]) == pm.globals.get(\"@TYPESS01\"); });",
+											"  pm.test('lifecycleStatus is ' + pm.globals.get(\"LIFECYCLESTATUSSS01\"), function () { pm.expect(instance.lifecycleStatus) == pm.globals.get(\"LIFECYCLESTATUSSS01\"); });",
+											"  pm.test('isBundle is ' + pm.globals.get(\"ISBUNDLESS01\"), function () { pm.expect(instance.isBundle) == pm.globals.get(\"ISBUNDLESS01\"); });",
+											"",
+											"}",
+											"if (instance.id == pm.globals.get(\"IDSS02\")) {",
+											"",
+											"  pm.test('IDSS02 not expected on this test', function () { pm.expect.fail() });",
+											"}",
+											"",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"updated Spec\"\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification/{{IDSS01}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification",
+										"{{IDSS01}}"
+									]
+								},
+								"description": "This operation updates partially a ServiceSpecification entity."
+							},
+							"response": []
+						},
+						{
+							"name": "Retrieves a ServiceSpecification by ID",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceSpecification/:id?fields={{fields}}",
+									"host": [
+										"{{Service_Catalog}}"
+									],
+									"path": [
+										"tmf-api",
+										"serviceCatalogManagement",
+										"v4",
+										"serviceSpecification",
+										":id"
+									],
+									"query": [
+										{
+											"key": "fields",
+											"value": "{{fields}}"
+										}
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "{{id}}"
+										}
+									]
+								},
+								"description": "This operation retrieves a ServiceSpecification entity. Attribute selection is enabled for all first level attributes."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceSpecification_E1",
+					"item": [
+						{
+							"name": "Creates a ServiceSpecification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4ee267d1-abac-4018-bb83-a2e2cde94fb5",
+										"exec": [
+											"",
+											"",
+											"pm.test(\"Status code is 400\", function () {",
+											"  pm.response.to.have.status(400);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"description\": \"This service specification describes a firewall service that can be deployed in customer premise.\",\n    \"version\": \"1.0\",\n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n        \"endDateTime\": \"2010-01-20T20:00:00.000Z\"\n    },\n    \"lastUpdate\": \"2019-01-20T20:00:00.000Z\",\n    \"lifecycleStatus\": \"In Design\",\n    \"isBundle\": false,\n    \"attachment\": [\n        {\n            \"description\": \"This attachment gives a block diagram of the firewall.\",\n            \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v4/attachment/22\",\n            \"id\": \"22\",\n            \"url\": \"https://mycsp.com:7070/docloader?docnum=3534536\"\n        }\n    ],\n    \"serviceSpecCharacteristic\": [\n        {\n            \"name\": \"OperatingSystem\",\n            \"description\": \"This characteristic describes the operating system run by the service\",\n            \"valueType\": \"string\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": false,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"string\",\n                    \"isDefault\": true,\n                    \"value\": \"Android KitKat\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"serviceSpecCharRelationship\": [\n                {\n                    \"relationshipType\": \"dependency\",\n                    \"role\": \"\",\n                    \"id\": \"4690\",\n                    \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecificationCharacteristic/4690\",\n                    \"name\": \"OperatingSystem\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        },\n        {\n            \"name\": \"Scalability\",\n            \"description\": \"Scalability parameters for this resource facing service spec \",\n            \"valueType\": \"CapabilityScalable\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": true,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"object\",\n                    \"isDefault\": true,\n                    \"value\": {\n                        \"minInstances\": 1,\n                        \"maxInstances\": 1000\n                    },\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    },\n                    \"@type\": \"CapabilityScalable\",\n                    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\"\n                }\n            ],\n            \"serviceSpecCharRelationship\": [],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        }\n    ],\n    \"relatedParty\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v4/organization/3643\",\n            \"id\": \"3643\",\n            \"name\": \"Firewall Express\",\n            \"role\": \"Supplier\"\n        }\n    ],\n    \"serviceLevelSpecification\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceQualityManagement/v4/serviceLevelSpecification/8899\",\n            \"id\": \"8899\",\n            \"name\": \"Platinum\"\n        }\n    ],\n    \"targetServiceSchema\": {\n        \"@type\": \"RFS\",\n        \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/RFS.schema.json\"\n    },\n    \"@type\": \"ResourceFacingServiceSpecification\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ResourceFacingServiceSpecification.schema.json\",\n    \"@baseType\": \"ServiceSpecification\"\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification"
+									]
+								},
+								"description": "This operation creates a ServiceSpecification entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ServiceSpecification_E2",
+					"item": [
+						{
+							"name": "Updates partially a ServiceSpecification",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ddd78965-18da-4ec3-8181-9d228bd4c66f",
+										"exec": [
+											"pm.test(\"Status code is error\", function () {",
+											"  pm.response.to.be.error;",
+											"});",
+											"",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"id\": \"1234\"\n}"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/serviceSpecification/{{IDSS01}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"serviceSpecification",
+										"{{IDSS01}}"
+									]
+								},
+								"description": "This operation updates partially a ServiceSpecification entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "Folder for serviceSpecification"
+		},
+		{
+			"name": "importJob",
+			"item": [
+				{
+					"name": "TC_ImportJob_N1",
+					"item": [
+						{
+							"name": "Creates a ImportJob",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eeb20b6d-9607-4ff6-9c01-1da070572157",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData)) { ",
+											"  ",
+											"    pm.test('Array not expected as response', function (){pm.expect.fail()});",
+											"  ",
+											"",
+											"}",
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"  pm.response.to.have.status(201);",
+											"});",
+											"",
+											"var instance = pm.response.json();",
+											"var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"",
+											"pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"",
+											"",
+											"pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"",
+											"pm.test('id is set', function() {pm.globals.set('IDIJ01', instance.id); pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is set', function() {pm.globals.set('HREFIJ01', instance.href); pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is set', function() {pm.globals.set('URLIJ01', instance.url); pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"",
+											"pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"https://my-platform/daily/job/NHCFD6\",\r\n    \"path\": \"/warning/system\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/importJob",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"importJob"
+									]
+								},
+								"description": "This operation creates a ImportJob entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ImportJob_N2",
+					"item": [
+						{
+							"name": "List or find ImportJob objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "17094c29-70ea-48c0-a1eb-b337cf70592d",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    ",
+											"    var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDIJ01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFIJ01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is ' + pm.globals.get(\"URLIJ01\"), function() {pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"    }",
+											"",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDIJ01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFIJ01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is ' + pm.globals.get(\"URLIJ01\"), function() {pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"    }",
+											"",
+											"",
+											"}",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/importJob",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"importJob"
+									]
+								},
+								"description": "This operation list or find ImportJob entities"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ImportJob_N3",
+					"item": [
+						{
+							"name": "List or find ImportJob objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "17094c29-70ea-48c0-a1eb-b337cf70592d",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    ",
+											"    var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDIJ01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFIJ01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is ' + pm.globals.get(\"URLIJ01\"), function() {pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"    }",
+											"",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDIJ01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFIJ01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is ' + pm.globals.get(\"URLIJ01\"), function() {pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"    }",
+											"",
+											"",
+											"}",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/importJob?url={{URLIJ01}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"importJob"
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "{{URLIJ01}}"
+										}
+									]
+								},
+								"description": "This operation list or find ImportJob entities"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ImportJob_N4",
+					"item": [
+						{
+							"name": "List or find ImportJob objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "17094c29-70ea-48c0-a1eb-b337cf70592d",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"if (Array.isArray(jsonData)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    var requiredAttributes = ['url', 'id', 'href'];",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"    //We expect only 2 fields",
+											"",
+											"    pm.test('Instance has only filtered attributes', function () { pm.expect(Object.keys(instance).length).to.eql(requiredAttributes.length) });",
+											"",
+											"    // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"",
+											"    pm.test('Response has url attribute', function () { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string') });",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  var requiredAttributes = ['url', 'id'];",
+											"  pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"  //We expect only 2 fields",
+											"",
+											"  pm.test('Instance has only filtered attributes', function () { pm.expect(Object.keys(instance).length).to.eql(requiredAttributes.length) });",
+											"",
+											"  // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"",
+											"  pm.test('Response has url attribute', function () { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"  pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string') });",
+											"}"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/importJob?url={{URLIJ01}}&fields=url",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"importJob"
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "{{URLIJ01}}"
+										},
+										{
+											"key": "fields",
+											"value": "url"
+										}
+									]
+								},
+								"description": "This operation list or find ImportJob entities"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ImportJob_N5",
+					"item": [
+						{
+							"name": "Deletes a ImportJob",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4673074c-7b86-42f7-b065-ed105ce13220",
+										"exec": [
+											"",
+											"pm.test(\"Status code is 204\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/importJob/{{IDIJ01}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"importJob",
+										"{{IDIJ01}}"
+									]
+								},
+								"description": "This operation deletes a ImportJob entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ImportJob_E1",
+					"item": [
+						{
+							"name": "Creates a ImportJob",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eeb20b6d-9607-4ff6-9c01-1da070572157",
+										"exec": [
+											"",
+											"",
+											"pm.test(\"Status code is 400\", function () {",
+											"  pm.response.to.have.status(400);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"path\": \"/warning/system\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/importJob",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"importJob"
+									]
+								},
+								"description": "This operation creates a ImportJob entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "Folder for importJob"
+		},
+		{
+			"name": "exportJob",
+			"item": [
+				{
+					"name": "TC_ExportJob_N1",
+					"item": [
+						{
+							"name": "Creates a ExportJob",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eeb20b6d-9607-4ff6-9c01-1da070572157",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData)) { ",
+											"  ",
+											"    pm.test('Array not expected as response', function (){pm.expect.fail()});",
+											"  ",
+											"",
+											"}",
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"  pm.response.to.have.status(201);",
+											"});",
+											"",
+											"var instance = pm.response.json();",
+											"var requiredAttributes = [ 'id', 'href', 'url'  ];",
+											"",
+											"pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"",
+											"",
+											"pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"",
+											"pm.test('id is set', function() {pm.globals.set('IDEJ01', instance.id); pm.expect(instance.id) == pm.globals.get(\"IDEJ01\");});",
+											"pm.test('href is set', function() {pm.globals.set('HREFEJ01', instance.href); pm.expect(instance.href) == pm.globals.get(\"HREFEJ01\");});",
+											"pm.test('url is set', function() {pm.globals.set('URLEJ01', instance.url); pm.expect(instance.url) == pm.globals.get(\"URLEJ01\");});",
+											"",
+											"",
+											"pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"url\": \"https://my-platform/daily/job/EHCFD6\",\r\n    \"path\": \"/warning/system\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/exportJob",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"exportJob"
+									]
+								},
+								"description": "This operation creates a ImportJob entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ExportJob_N2",
+					"item": [
+						{
+							"name": "List or find ExportJob objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "17094c29-70ea-48c0-a1eb-b337cf70592d",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    ",
+											"    var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDIJ01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFIJ01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is ' + pm.globals.get(\"URLIJ01\"), function() {pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"    }",
+											"",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDIJ01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFIJ01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is ' + pm.globals.get(\"URLIJ01\"), function() {pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"    }",
+											"",
+											"",
+											"}",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/importJob",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"importJob"
+									]
+								},
+								"description": "This operation list or find ImportJob entities"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ExportJob_N3",
+					"item": [
+						{
+							"name": "List or find ExportJob objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "17094c29-70ea-48c0-a1eb-b337cf70592d",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"",
+											"",
+											"var jsonData = pm.response.json();",
+											"",
+											"if (Array.isArray(jsonData) && (jsonData.length > 0)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    ",
+											"    var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDIJ01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFIJ01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is ' + pm.globals.get(\"URLIJ01\"), function() {pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"    }",
+											"",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  var requiredAttributes = [ 'id', 'href', 'url',  ];",
+											"    ",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"    ",
+											"    ",
+											"    ",
+											"    pm.test('Response id attribute is of type string', function() { pm.expect(instance.id).to.be.a('string'); });",
+											"pm.test('Response href attribute is of type string', function() { pm.expect(instance.href).to.be.a('string'); });",
+											"pm.test('Response url attribute is of type string', function() { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    ",
+											"    pm.test(\"Body includes value held on id\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.id);",
+											"      });",
+											"pm.test(\"Body includes value held on href\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.href);",
+											"      });",
+											"pm.test(\"Body includes value held on url\", function () {",
+											"          pm.expect(pm.response.text()).to.include(instance.url);",
+											"      });",
+											"",
+											"    ",
+											"    ",
+											"",
+											"    // Individualized tests",
+											"    if (instance.id == pm.globals.get(\"IDSS01\")) {",
+											"",
+											"      pm.test('id is ' + pm.globals.get(\"IDIJ01\"), function() {pm.expect(instance.id) == pm.globals.get(\"IDIJ01\");});",
+											"pm.test('href is ' + pm.globals.get(\"HREFIJ01\"), function() {pm.expect(instance.href) == pm.globals.get(\"HREFIJ01\");});",
+											"pm.test('url is ' + pm.globals.get(\"URLIJ01\"), function() {pm.expect(instance.url) == pm.globals.get(\"URLIJ01\");});",
+											"",
+											"    }",
+											"",
+											"",
+											"}",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/exportJob?url={{URLEJ01}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"exportJob"
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "{{URLEJ01}}"
+										}
+									]
+								},
+								"description": "This operation list or find ImportJob entities"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ExportJob_N4",
+					"item": [
+						{
+							"name": "List or find ExportJob objects",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "17094c29-70ea-48c0-a1eb-b337cf70592d",
+										"exec": [
+											"var jsonData = pm.response.json();",
+											"pm.test(\"Status code is 200\", function () {",
+											"  pm.response.to.have.status(200);",
+											"});",
+											"if (Array.isArray(jsonData)) {",
+											"  jsonData.forEach(function (instance, index) {",
+											"    var requiredAttributes = ['url','id','href'];",
+											"    pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"    //We expect only 3 fields",
+											"",
+											"    pm.test('Instance has only filtered attributes', function () { pm.expect(Object.keys(instance).length).to.eql(requiredAttributes.length) });",
+											"",
+											"    // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"",
+											"    pm.test('Response has url attribute', function () { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"    pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string') });",
+											"",
+											"  });",
+											"}",
+											"else {",
+											"  var instance = pm.response.json();",
+											"  var requiredAttributes = ['url', 'id'];",
+											"  pm.test('Instance has all mandatory attributes', function () { pm.expect(Object.keys(instance)).to.include.members(requiredAttributes) });",
+											"",
+											"  //We expect only 2 fields",
+											"",
+											"  pm.test('Instance has only filtered attributes', function () { pm.expect(Object.keys(instance).length).to.eql(requiredAttributes.length) });",
+											"",
+											"  // Checking all remaining possible attributes for ServiceOrder, taken from the Swagger file",
+											"",
+											"  pm.test('Response has url attribute', function () { pm.expect(instance.url).to.be.a('string'); });",
+											"",
+											"  pm.test('Response has id attribute', function () { pm.expect(instance.id).to.be.a('string') });",
+											"}",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/exportJob?url={{URLIJ01}}&fields=url",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"exportJob"
+									],
+									"query": [
+										{
+											"key": "url",
+											"value": "{{URLIJ01}}"
+										},
+										{
+											"key": "fields",
+											"value": "url"
+										}
+									]
+								},
+								"description": "This operation list or find ImportJob entities"
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ExportJob_N5",
+					"item": [
+						{
+							"name": "Deletes a ExportJob",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4673074c-7b86-42f7-b065-ed105ce13220",
+										"exec": [
+											"",
+											"pm.test(\"Status code is 204\", function () {",
+											"  pm.response.to.have.status(204);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/exportJob/{{IDEJ01}}",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"exportJob",
+										"{{IDEJ01}}"
+									]
+								},
+								"description": "This operation deletes a ImportJob entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "TC_ExportJob_E1",
+					"item": [
+						{
+							"name": "Creates a ExportJob",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "eeb20b6d-9607-4ff6-9c01-1da070572157",
+										"exec": [
+											"",
+											"",
+											"pm.test(\"Status code is 400\", function () {",
+											"  pm.response.to.have.status(400);",
+											"});",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json;charset=utf-8"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json;charset=utf-8"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \r\n    \"path\": \"/warning/system\"\r\n}\r\n"
+								},
+								"url": {
+									"raw": "{{ServiceCatalogAPI}}/exportJob",
+									"host": [
+										"{{ServiceCatalogAPI}}"
+									],
+									"path": [
+										"exportJob"
+									]
+								},
+								"description": "This operation creates a ImportJob entity."
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"description": "Folder for importJob"
+		}
+	]
+}
