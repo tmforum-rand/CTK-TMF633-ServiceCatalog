@@ -60,7 +60,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"TVServiceCandidate\", \n    \"description\": \"This service candidate allows provision of TV service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\", \n        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5980\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceCategory/5980\",\n            \"name\": \"TV\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9600\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecification/9600\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_TV\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
+									"raw": "{\n    \"name\": \"TVServiceCandidate\", \n    \"description\": \"This service candidate allows provision of TV service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\", \n        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5980\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v3/serviceCategory/5980\",\n            \"name\": \"TV\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9600\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v3/serviceSpecification/9600\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_TV\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
 								},
 								"url": {
 									"raw": "{{ServiceCatalogAPI}}/serviceCandidate",
@@ -123,7 +123,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"InternetServiceCandidate\", \n    \"description\": \"This service candidate allows provision of Internet service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-05T20:00:00.000Z\", \n        \"endDateTime\": \"2020-05-05T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5910\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceCategory/5910\",\n            \"name\": \"Internet\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9500\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecification/9500\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_Internet\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
+									"raw": "{\n    \"name\": \"InternetServiceCandidate\", \n    \"description\": \"This service candidate allows provision of Internet service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-05T20:00:00.000Z\", \n        \"endDateTime\": \"2020-05-05T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5910\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v3/serviceCategory/5910\",\n            \"name\": \"Internet\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9500\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v3/serviceSpecification/9500\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_Internet\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
 								},
 								"url": {
 									"raw": "{{ServiceCatalogAPI}}/serviceCandidate",
@@ -344,14 +344,14 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate?name={{NAMESC01}}",
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v3/serviceCandidate?name={{NAMESC01}}",
 									"host": [
 										"{{Service_Catalog}}"
 									],
 									"path": [
 										"tmf-api",
 										"serviceCatalogManagement",
-										"v4",
+										"v3",
 										"serviceCandidate"
 									],
 									"query": [
@@ -463,14 +463,14 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate?name={{NAMESC02}}&fields=name,id",
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v3/serviceCandidate?name={{NAMESC02}}&fields=name,id",
 									"host": [
 										"{{Service_Catalog}}"
 									],
 									"path": [
 										"tmf-api",
 										"serviceCatalogManagement",
-										"v4",
+										"v3",
 										"serviceCandidate"
 									],
 									"query": [
@@ -529,14 +529,14 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate/{{IDSC01}}",
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v3/serviceCandidate/{{IDSC01}}",
 									"host": [
 										"{{Service_Catalog}}"
 									],
 									"path": [
 										"tmf-api",
 										"serviceCatalogManagement",
-										"v4",
+										"v3",
 										"serviceCandidate",
 										"{{IDSC01}}"
 									]
@@ -580,14 +580,14 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate/{{IDSC01}}",
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v3/serviceCandidate/{{IDSC01}}",
 									"host": [
 										"{{Service_Catalog}}"
 									],
 									"path": [
 										"tmf-api",
 										"serviceCatalogManagement",
-										"v4",
+										"v3",
 										"serviceCandidate",
 										"{{IDSC01}}"
 									]
@@ -637,14 +637,14 @@
 									"raw": "{\n    \"name\": \"Updated Service Candidate\"\n    \n}"
 								},
 								"url": {
-									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate/{{IDSC02}}",
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v3/serviceCandidate/{{IDSC02}}",
 									"host": [
 										"{{Service_Catalog}}"
 									],
 									"path": [
 										"tmf-api",
 										"serviceCatalogManagement",
-										"v4",
+										"v3",
 										"serviceCandidate",
 										"{{IDSC02}}"
 									]
@@ -738,14 +738,14 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceCandidate?name={{NAMESC02}}",
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v3/serviceCandidate?name={{NAMESC02}}",
 									"host": [
 										"{{Service_Catalog}}"
 									],
 									"path": [
 										"tmf-api",
 										"serviceCatalogManagement",
-										"v4",
+										"v3",
 										"serviceCandidate"
 									],
 									"query": [
@@ -802,7 +802,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"description\": \"This service candidate allows provision of TV service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\", \n        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5980\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceCategory/5980\",\n            \"name\": \"TV\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9600\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecification/9600\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_TV\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
+									"raw": "{\n    \"description\": \"This service candidate allows provision of TV service\", \n    \"version\": \"2.1\", \n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\", \n        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n    }, \n    \"category\": [\n        {\n            \"id\": \"5980\", \n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v3/serviceCategory/5980\",\n            \"name\": \"TV\"\n        }\n    ], \n    \"serviceSpecification\": {\n        \"id\": \"9600\", \n        \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v3/serviceSpecification/9600\", \n        \"version\": \"2.1\", \n        \"name\": \"CFSS_TV\", \n        \"@type\": \"CustomerFacingServiceSpecification\"\n    }, \n    \"@type\": \"ServiceCandidate\", \n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceCandidate.schema.json\", \n    \"@baseType\": \"\"\n}"
 								},
 								"url": {
 									"raw": "{{ServiceCatalogAPI}}/serviceCandidate",
@@ -967,7 +967,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"name\": \"Firewall Service\",\n    \"description\": \"This service specification describes a firewall service that can be deployed in customer premise.\",\n    \"version\": \"1.0\",\n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n        \"endDateTime\": \"2010-01-20T20:00:00.000Z\"\n    },\n    \"lastUpdate\": \"2019-01-20T20:00:00.000Z\",\n    \"lifecycleStatus\": \"In Design\",\n    \"isBundle\": false,\n    \"attachment\": [\n        {\n            \"description\": \"This attachment gives a block diagram of the firewall.\",\n            \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v4/attachment/22\",\n            \"id\": \"22\",\n            \"url\": \"https://mycsp.com:7070/docloader?docnum=3534536\"\n        }\n    ],\n    \"serviceSpecCharacteristic\": [\n        {\n            \"name\": \"OperatingSystem\",\n            \"description\": \"This characteristic describes the operating system run by the service\",\n            \"valueType\": \"string\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": false,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"string\",\n                    \"isDefault\": true,\n                    \"value\": \"Android KitKat\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"serviceSpecCharRelationship\": [\n                {\n                    \"relationshipType\": \"dependency\",\n                    \"role\": \"\",\n                    \"id\": \"4690\",\n                    \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecificationCharacteristic/4690\",\n                    \"name\": \"OperatingSystem\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        },\n        {\n            \"name\": \"Scalability\",\n            \"description\": \"Scalability parameters for this resource facing service spec \",\n            \"valueType\": \"CapabilityScalable\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": true,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"object\",\n                    \"isDefault\": true,\n                    \"value\": {\n                        \"minInstances\": 1,\n                        \"maxInstances\": 1000\n                    },\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    },\n                    \"@type\": \"CapabilityScalable\",\n                    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\"\n                }\n            ],\n            \"serviceSpecCharRelationship\": [],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        }\n    ],\n    \"relatedParty\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v4/organization/3643\",\n            \"id\": \"3643\",\n            \"name\": \"Firewall Express\",\n            \"role\": \"Supplier\"\n        }\n    ],\n    \"serviceLevelSpecification\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceQualityManagement/v4/serviceLevelSpecification/8899\",\n            \"id\": \"8899\",\n            \"name\": \"Platinum\"\n        }\n    ],\n    \"targetServiceSchema\": {\n        \"@type\": \"RFS\",\n        \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/RFS.schema.json\"\n    },\n    \"@type\": \"ResourceFacingServiceSpecification\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ResourceFacingServiceSpecification.schema.json\",\n    \"@baseType\": \"ServiceSpecification\"\n}"
+									"raw": "{\n    \"name\": \"Firewall Service\",\n    \"description\": \"This service specification describes a firewall service that can be deployed in customer premise.\",\n    \"version\": \"1.0\",\n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n        \"endDateTime\": \"2010-01-20T20:00:00.000Z\"\n    },\n    \"lastUpdate\": \"2019-01-20T20:00:00.000Z\",\n    \"lifecycleStatus\": \"In Design\",\n    \"isBundle\": false,\n    \"attachment\": [\n        {\n            \"description\": \"This attachment gives a block diagram of the firewall.\",\n            \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v3/attachment/22\",\n            \"id\": \"22\",\n            \"url\": \"https://mycsp.com:7070/docloader?docnum=3534536\"\n        }\n    ],\n    \"serviceSpecCharacteristic\": [\n        {\n            \"name\": \"OperatingSystem\",\n            \"description\": \"This characteristic describes the operating system run by the service\",\n            \"valueType\": \"string\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": false,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"string\",\n                    \"isDefault\": true,\n                    \"value\": \"Android KitKat\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"serviceSpecCharRelationship\": [\n                {\n                    \"relationshipType\": \"dependency\",\n                    \"role\": \"\",\n                    \"id\": \"4690\",\n                    \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v3/serviceSpecificationCharacteristic/4690\",\n                    \"name\": \"OperatingSystem\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        },\n        {\n            \"name\": \"Scalability\",\n            \"description\": \"Scalability parameters for this resource facing service spec \",\n            \"valueType\": \"CapabilityScalable\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": true,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"object\",\n                    \"isDefault\": true,\n                    \"value\": {\n                        \"minInstances\": 1,\n                        \"maxInstances\": 1000\n                    },\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    },\n                    \"@type\": \"CapabilityScalable\",\n                    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\"\n                }\n            ],\n            \"serviceSpecCharRelationship\": [],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        }\n    ],\n    \"relatedParty\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v3/organization/3643\",\n            \"id\": \"3643\",\n            \"name\": \"Firewall Express\",\n            \"role\": \"Supplier\"\n        }\n    ],\n    \"serviceLevelSpecification\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceQualityManagement/v3/serviceLevelSpecification/8899\",\n            \"id\": \"8899\",\n            \"name\": \"Platinum\"\n        }\n    ],\n    \"targetServiceSchema\": {\n        \"@type\": \"RFS\",\n        \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/RFS.schema.json\"\n    },\n    \"@type\": \"ResourceFacingServiceSpecification\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ResourceFacingServiceSpecification.schema.json\",\n    \"@baseType\": \"ServiceSpecification\"\n}"
 								},
 								"url": {
 									"raw": "{{ServiceCatalogAPI}}/serviceSpecification",
@@ -1613,14 +1613,14 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v4/serviceSpecification/:id?fields={{fields}}",
+									"raw": "{{Service_Catalog}}/tmf-api/serviceCatalogManagement/v3/serviceSpecification/:id?fields={{fields}}",
 									"host": [
 										"{{Service_Catalog}}"
 									],
 									"path": [
 										"tmf-api",
 										"serviceCatalogManagement",
-										"v4",
+										"v3",
 										"serviceSpecification",
 										":id"
 									],
@@ -1680,7 +1680,7 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n    \"description\": \"This service specification describes a firewall service that can be deployed in customer premise.\",\n    \"version\": \"1.0\",\n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n        \"endDateTime\": \"2010-01-20T20:00:00.000Z\"\n    },\n    \"lastUpdate\": \"2019-01-20T20:00:00.000Z\",\n    \"lifecycleStatus\": \"In Design\",\n    \"isBundle\": false,\n    \"attachment\": [\n        {\n            \"description\": \"This attachment gives a block diagram of the firewall.\",\n            \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v4/attachment/22\",\n            \"id\": \"22\",\n            \"url\": \"https://mycsp.com:7070/docloader?docnum=3534536\"\n        }\n    ],\n    \"serviceSpecCharacteristic\": [\n        {\n            \"name\": \"OperatingSystem\",\n            \"description\": \"This characteristic describes the operating system run by the service\",\n            \"valueType\": \"string\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": false,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"string\",\n                    \"isDefault\": true,\n                    \"value\": \"Android KitKat\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"serviceSpecCharRelationship\": [\n                {\n                    \"relationshipType\": \"dependency\",\n                    \"role\": \"\",\n                    \"id\": \"4690\",\n                    \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v4/serviceSpecificationCharacteristic/4690\",\n                    \"name\": \"OperatingSystem\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        },\n        {\n            \"name\": \"Scalability\",\n            \"description\": \"Scalability parameters for this resource facing service spec \",\n            \"valueType\": \"CapabilityScalable\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": true,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"object\",\n                    \"isDefault\": true,\n                    \"value\": {\n                        \"minInstances\": 1,\n                        \"maxInstances\": 1000\n                    },\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    },\n                    \"@type\": \"CapabilityScalable\",\n                    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\"\n                }\n            ],\n            \"serviceSpecCharRelationship\": [],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        }\n    ],\n    \"relatedParty\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v4/organization/3643\",\n            \"id\": \"3643\",\n            \"name\": \"Firewall Express\",\n            \"role\": \"Supplier\"\n        }\n    ],\n    \"serviceLevelSpecification\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceQualityManagement/v4/serviceLevelSpecification/8899\",\n            \"id\": \"8899\",\n            \"name\": \"Platinum\"\n        }\n    ],\n    \"targetServiceSchema\": {\n        \"@type\": \"RFS\",\n        \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/RFS.schema.json\"\n    },\n    \"@type\": \"ResourceFacingServiceSpecification\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ResourceFacingServiceSpecification.schema.json\",\n    \"@baseType\": \"ServiceSpecification\"\n}"
+									"raw": "{\n    \"description\": \"This service specification describes a firewall service that can be deployed in customer premise.\",\n    \"version\": \"1.0\",\n    \"validFor\": {\n        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n        \"endDateTime\": \"2010-01-20T20:00:00.000Z\"\n    },\n    \"lastUpdate\": \"2019-01-20T20:00:00.000Z\",\n    \"lifecycleStatus\": \"In Design\",\n    \"isBundle\": false,\n    \"attachment\": [\n        {\n            \"description\": \"This attachment gives a block diagram of the firewall.\",\n            \"href\": \"https://mycsp.com:8080/tmf-api/documentManagement/v3/attachment/22\",\n            \"id\": \"22\",\n            \"url\": \"https://mycsp.com:7070/docloader?docnum=3534536\"\n        }\n    ],\n    \"serviceSpecCharacteristic\": [\n        {\n            \"name\": \"OperatingSystem\",\n            \"description\": \"This characteristic describes the operating system run by the service\",\n            \"valueType\": \"string\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": false,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"string\",\n                    \"isDefault\": true,\n                    \"value\": \"Android KitKat\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"serviceSpecCharRelationship\": [\n                {\n                    \"relationshipType\": \"dependency\",\n                    \"role\": \"\",\n                    \"id\": \"4690\",\n                    \"href\": \"https://mycsp.com:8080/tmf-api/serviceCatalogManagement/v3/serviceSpecificationCharacteristic/4690\",\n                    \"name\": \"OperatingSystem\",\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    }\n                }\n            ],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        },\n        {\n            \"name\": \"Scalability\",\n            \"description\": \"Scalability parameters for this resource facing service spec \",\n            \"valueType\": \"CapabilityScalable\",\n            \"configurable\": true,\n            \"validFor\": {\n                \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n            },\n            \"@valueSchemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\",\n            \"minCardinality\": 0,\n            \"maxCardinality\": 1,\n            \"isUnique\": true,\n            \"regex\": \"\",\n            \"extensible\": true,\n            \"serviceSpecCharacteristicValue\": [\n                {\n                    \"valueType\": \"object\",\n                    \"isDefault\": true,\n                    \"value\": {\n                        \"minInstances\": 1,\n                        \"maxInstances\": 1000\n                    },\n                    \"validFor\": {\n                        \"startDateTime\": \"2019-01-20T20:00:00.000Z\",\n                        \"endDateTime\": \"2020-01-20T20:00:00.000Z\"\n                    },\n                    \"@type\": \"CapabilityScalable\",\n                    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/CapabilityScalable.schema.json\"\n                }\n            ],\n            \"serviceSpecCharRelationship\": [],\n            \"@type\": \"ServiceSpecCharacteristic\",\n            \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ServiceSpecCharacteristic.schema.json\"\n        }\n    ],\n    \"relatedParty\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/partyManagement/v3/organization/3643\",\n            \"id\": \"3643\",\n            \"name\": \"Firewall Express\",\n            \"role\": \"Supplier\"\n        }\n    ],\n    \"serviceLevelSpecification\": [\n        {\n            \"href\": \"https://mycsp.com:8080/tmf-api/serviceQualityManagement/v3/serviceLevelSpecification/8899\",\n            \"id\": \"8899\",\n            \"name\": \"Platinum\"\n        }\n    ],\n    \"targetServiceSchema\": {\n        \"@type\": \"RFS\",\n        \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/RFS.schema.json\"\n    },\n    \"@type\": \"ResourceFacingServiceSpecification\",\n    \"@schemaLocation\": \"https://mycsp.com:8080/tmf-api/schema/Service/ResourceFacingServiceSpecification.schema.json\",\n    \"@baseType\": \"ServiceSpecification\"\n}"
 								},
 								"url": {
 									"raw": "{{ServiceCatalogAPI}}/serviceSpecification",
